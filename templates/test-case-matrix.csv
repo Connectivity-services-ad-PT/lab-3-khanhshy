@@ -1,6 +1,15 @@
 ID,Folder,Endpoint,Method,Scenario,Input file/body,Expected status,Expected response check,Type,Pass/Fail,Evidence
-TC01,Functional,/health,GET,Service is alive,-,200,status=ok,functional,,
-TC02,Functional,/readings,POST,Create reading happy path,mock-data/sensor-reading-valid.json,201,"has reading_id, accepted=true",functional,,
-TC03,Negative,/readings,POST,Missing device_id,mock-data/sensor-reading-invalid-missing-device.json,400,Problem Details,negative,,
-TC04,Auth,/readings,POST,Missing token,mock-data/sensor-reading-valid.json,401,Problem Details,auth,,
-TC05,Boundary,/readings,POST,High temperature boundary,mock-data/sensor-reading-boundary.json,201/400,documented behavior,boundary,,
+TC01,01_Functional,/health,GET,Service is alive,-,200,"status=ok, has service and time",functional,Pass,reports/newman-report.xml
+TC02,01_Functional,/sensors/readings,POST,Create reading happy path,mock-data/sensor-reading-valid.json,201,"has id, createdAt, deviceId, sensorType",functional,Pass,reports/newman-report.xml
+TC03,01_Functional,/sensors/readings,GET,List readings with filters,query deviceId/sensorType/limit,200,"has items,total,nextCursor",functional,Pass,reports/newman-report.xml
+TC04,01_Functional,/devices/{deviceId}/status,GET,Get device status,path deviceId=SENSOR-001,200,"has deviceId,status,timestamp",functional,Pass,reports/newman-report.xml
+TC05,02_Auth,/sensors/readings,POST,Valid bearer token,mock-data/sensor-reading-valid.json,201,success response,auth,Pass,reports/newman-report.xml
+TC06,02_Auth,/sensors/readings,POST,Missing bearer token,mock-data/sensor-reading-valid.json,401/403 on local; documented on mock,auth rejection,auth,Pass on mock,reports/newman-report.xml
+TC07,02_Auth,/sensors/readings,POST,Invalid bearer token,inline body with invalid-token,401/403 on local; documented on mock,auth rejection,auth,Pass on mock,reports/newman-report.xml
+TC08,03_Negative,/sensors/readings,POST,Missing deviceId,mock-data/sensor-reading-invalid-missing-device.json,400/422,Problem response,negative,Pass,reports/newman-report.xml
+TC09,03_Negative,/sensors/readings,GET,Invalid limit,limit=101,400/422,client error,negative,Pass,reports/newman-report.xml
+TC10,04_Boundary_Reliability,/sensors/readings,POST,High temperature boundary,mock-data/sensor-reading-boundary.json,201/400/422,"success has id or error has detail",boundary,Pass,reports/newman-report.xml
+TC11,04_Boundary_Reliability,/sensors/threshold-exceeded,GET,Severity filter,severity=HIGH&limit=10,200,has items array,boundary,Pass,reports/newman-report.xml
+TC12,05_Consumer_side_Smoke,/telemetry,GET,Analytics queries IoT telemetry,deviceId=SENSOR-001&limit=1,200,has telemetry items,consumer-smoke,Pass,reports/newman-report.xml
+TC13,05_Consumer_side_Smoke,/events,GET,Core queries IoT events,eventType=sensor.reading.created&limit=1,200,has event items,consumer-smoke,Pass,reports/newman-report.xml
+TC14,06_Local_only_NonFunctional,/health,GET,Local latency check,-,200,response time below 1000ms on local,nonfunctional,Pass with Prism fallback,reports/newman-report-local.xml

@@ -70,7 +70,7 @@ FIT4110_lab03_postman_mock_testing/
 ├── package.json
 ├── Makefile
 ├── contracts/
-│   ├── iot-ingestion.openapi.yaml
+│   ├── team-iot.openapi.yaml
 │   └── ai-vision.openapi.yaml
 ├── postman/
 │   ├── collections/
@@ -168,7 +168,7 @@ Authorization: Bearer {{authToken}}
 Contract mẫu của IoT Ingestion nằm tại:
 
 ```text
-contracts/iot-ingestion.openapi.yaml
+contracts/team-iot.openapi.yaml
 ```
 
 Chạy mock IoT:

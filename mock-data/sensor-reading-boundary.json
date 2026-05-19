@@ -1,7 +1,8 @@
 {
-  "device_id": "ESP32-LAB-A01",
-  "metric": "temperature",
+  "deviceId": "SENSOR-001",
+  "sensorType": "temperature",
   "value": 80,
   "unit": "celsius",
-  "timestamp": "2026-05-13T08:30:00+07:00"
+  "timestamp": "2026-05-13T08:30:00+07:00",
+  "locationId": "ZONE-A-01"
 }

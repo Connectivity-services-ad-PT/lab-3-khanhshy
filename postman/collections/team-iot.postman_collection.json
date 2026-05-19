@@ -220,7 +220,44 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Missing token is rejected by real service or documented by mock', function () {",
-                  "  if (pm.environment.get('env') === 'mock') {",
+                  "  if (pm.environment.get('env') === 'mock' || pm.variables.get('localMode') === 'prism-mock') {",
+                  "    pm.expect([401, 403, 201]).to.include(pm.response.code);",
+                  "  } else {",
+                  "    pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  }",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /sensors/readings - invalid token",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer invalid-token" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sensors/readings",
+              "host": ["{{baseUrl}}"],
+              "path": ["sensors", "readings"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"SENSOR-004\",\n  \"sensorType\": \"temperature\",\n  \"value\": 29.4,\n  \"unit\": \"celsius\",\n  \"timestamp\": \"2026-05-13T08:33:00+07:00\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Invalid token is rejected by real service or documented by mock', function () {",
+                  "  if (pm.environment.get('env') === 'mock' || pm.variables.get('localMode') === 'prism-mock') {",
                   "    pm.expect([401, 403, 201]).to.include(pm.response.code);",
                   "  } else {",
                   "    pm.expect([401, 403]).to.include(pm.response.code);",

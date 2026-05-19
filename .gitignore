@@ -3,4 +3,7 @@ node_modules/
 .env
 reports/*.xml
 reports/*.html
+!reports/newman-report*.xml
+!reports/newman-report*.html
 prism.log
+prism.err.log
