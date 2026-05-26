@@ -5,6 +5,7 @@
   "description": "FIT4110 Lab 03 - Postman, Mock Server, Contract Testing, Newman CI",
   "scripts": {
     "mock:iot": "prism mock contracts/team-iot.openapi.yaml -p 4010 --host 0.0.0.0",
+    "mock:vision": "prism mock contracts/ai-vision.openapi.yaml -p 4011 --host 0.0.0.0",
     "test:mock": "newman run postman/collections/team-iot.postman_collection.json -e postman/environments/team-iot_mock.postman_environment.json --reporters cli,junit --reporter-junit-export reports/newman-report.xml",
     "test:local": "node scripts/run-local-if-ready.js",
     "test:html": "newman run postman/collections/team-iot.postman_collection.json -e postman/environments/team-iot_mock.postman_environment.json --reporters cli,htmlextra --reporter-htmlextra-export reports/newman-report.html"

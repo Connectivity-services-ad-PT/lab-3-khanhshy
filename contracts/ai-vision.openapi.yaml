@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: AI Vision Mock API
+  version: 0.1.0
+  description: Mock API for AI Vision service used by consumer-side smoke tests.
+servers:
+  - url: http://localhost:4011
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+  /detect:
+    post:
+      summary: Run image detection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                image_url:
+                  type: string
+                  format: uri
+                  example: https://example.com/image.jpg
+                image_base64:
+                  type: string
+                  example: "iVBORw0KGgoAAAANSUhEUgAAAAUA"
+              oneOf:
+                - required: [image_url]
+                - required: [image_base64]
+      responses:
+        '200':
+          description: Detection result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detection_id:
+                    type: string
+                    example: DET001
+                  label:
+                    type: string
+                    example: person
+                  confidence:
+                    type: number
+                    format: float
+                    minimum: 0
+                    maximum: 1
+                    example: 0.87
+  /detections/{id}:
+    get:
+      summary: Get detection result by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detection details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detection_id:
+                    type: string
+                    example: DET001
+                  label:
+                    type: string
+                    example: person
+                  confidence:
+                    type: number
+                    format: float
+                    example: 0.87
+  /models/info:
+    get:
+      summary: Get model metadata
+      responses:
+        '200':
+          description: Model info
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  model_name:
+                    type: string
+                    example: vision-v1
+                  version:
+                    type: string
+                    example: 1.0.0

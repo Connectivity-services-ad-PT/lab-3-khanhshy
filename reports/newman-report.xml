@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="FIT4110 Lab03 - IoT Ingestion Contract Tests" tests="14" time="0.187">
-  <testsuite name="01_Functional / GET /health - service is alive" id="21bdaebf-bc66-437e-bc41-61a7527000c6" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.059">
-    <testcase name="Status code is 200" time="0.059" classname="01FunctionalGetHealthServiceIsAlive"/>
-    <testcase name="Response has health fields" time="0.059" classname="01FunctionalGetHealthServiceIsAlive"/>
+<testsuites name="FIT4110 Lab03 - IoT Ingestion Contract Tests" tests="14" time="0.260">
+  <testsuite name="01_Functional / GET /health - service is alive" id="1b5df022-60f4-4ef0-8c45-5f09e01feaaa" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.077">
+    <testcase name="Status code is 200" time="0.077" classname="01FunctionalGetHealthServiceIsAlive"/>
+    <testcase name="Response has health fields" time="0.077" classname="01FunctionalGetHealthServiceIsAlive"/>
   </testsuite>
-  <testsuite name="01_Functional / POST /sensors/readings - create temperature reading" id="b424e782-e801-4490-bcc9-cb6c70340186" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.015">
-    <testcase name="Status code is 201" time="0.015" classname="01FunctionalPostSensorsReadingsCreateTemperatureReading"/>
-    <testcase name="Response follows SensorReading schema basics" time="0.015" classname="01FunctionalPostSensorsReadingsCreateTemperatureReading"/>
+  <testsuite name="01_Functional / POST /sensors/readings - create temperature reading" id="6ad5ef3c-0d5a-45f1-8ac5-32517dad6a7a" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.024">
+    <testcase name="Status code is 201" time="0.024" classname="01FunctionalPostSensorsReadingsCreateTemperatureReading"/>
+    <testcase name="Response follows SensorReading schema basics" time="0.024" classname="01FunctionalPostSensorsReadingsCreateTemperatureReading"/>
   </testsuite>
-  <testsuite name="01_Functional / GET /sensors/readings - list readings" id="7fdc871e-8eda-4be4-a5d4-abfb1813e7f4" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.010">
-    <testcase name="Status code is 200" time="0.010" classname="01FunctionalGetSensorsReadingsListReadings"/>
-    <testcase name="Response contains paged readings" time="0.010" classname="01FunctionalGetSensorsReadingsListReadings"/>
+  <testsuite name="01_Functional / GET /sensors/readings - list readings" id="9a830ab2-4a05-49a9-8573-4ea0130e726e" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.024">
+    <testcase name="Status code is 200" time="0.024" classname="01FunctionalGetSensorsReadingsListReadings"/>
+    <testcase name="Response contains paged readings" time="0.024" classname="01FunctionalGetSensorsReadingsListReadings"/>
   </testsuite>
-  <testsuite name="01_Functional / GET /devices/{deviceId}/status - device status" id="ccbce568-662e-40d5-9a15-8cbd1c3afd29" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.009">
+  <testsuite name="01_Functional / GET /devices/{deviceId}/status - device status" id="ecea4147-b945-4cbb-a5d6-9952a4fcd69e" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.009">
     <testcase name="Status code is 200" time="0.009" classname="01FunctionalGetDevicesDeviceIdStatusDeviceStatus"/>
     <testcase name="Response has device status fields" time="0.009" classname="01FunctionalGetDevicesDeviceIdStatusDeviceStatus"/>
   </testsuite>
-  <testsuite name="02_Auth / POST /sensors/readings - valid bearer token" id="43ed5d3c-bafb-4a65-96b8-53af6a20d4b8" timestamp="2026-05-19T09:18:51.323Z" tests="1" failures="0" errors="0" time="0.005">
-    <testcase name="Authorized request returns success" time="0.005" classname="02AuthPostSensorsReadingsValidBearerToken"/>
+  <testsuite name="02_Auth / POST /sensors/readings - valid bearer token" id="b79311cb-c8c6-45fe-af4d-3903105033aa" timestamp="2026-05-26T07:56:28.257Z" tests="1" failures="0" errors="0" time="0.007">
+    <testcase name="Authorized request returns success" time="0.007" classname="02AuthPostSensorsReadingsValidBearerToken"/>
   </testsuite>
-  <testsuite name="02_Auth / POST /sensors/readings - missing token" id="fd938e4d-c2b2-4df7-acd8-944a37781247" timestamp="2026-05-19T09:18:51.323Z" tests="1" failures="0" errors="0" time="0.012">
-    <testcase name="Missing token is rejected by real service or documented by mock" time="0.012" classname="02AuthPostSensorsReadingsMissingToken"/>
+  <testsuite name="02_Auth / POST /sensors/readings - missing token" id="507988d1-233d-4d93-a88f-f74b3d2dfce1" timestamp="2026-05-26T07:56:28.257Z" tests="1" failures="0" errors="0" time="0.024">
+    <testcase name="Missing token is rejected by real service or documented by mock" time="0.024" classname="02AuthPostSensorsReadingsMissingToken"/>
   </testsuite>
-  <testsuite name="02_Auth / POST /sensors/readings - invalid token" id="df86e616-705a-45ec-9c77-2a9e6b11bbc1" timestamp="2026-05-19T09:18:51.323Z" tests="1" failures="0" errors="0" time="0.010">
-    <testcase name="Invalid token is rejected by real service or documented by mock" time="0.010" classname="02AuthPostSensorsReadingsInvalidToken"/>
+  <testsuite name="02_Auth / POST /sensors/readings - invalid token" id="17b7e5b5-ff08-4214-8fdc-810d585b3ad3" timestamp="2026-05-26T07:56:28.257Z" tests="1" failures="0" errors="0" time="0.005">
+    <testcase name="Invalid token is rejected by real service or documented by mock" time="0.005" classname="02AuthPostSensorsReadingsInvalidToken"/>
   </testsuite>
-  <testsuite name="03_Negative / POST /sensors/readings - missing deviceId" id="5d2c7919-d061-4964-b355-595f7edf1b51" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.013">
-    <testcase name="Invalid payload returns client error" time="0.013" classname="03NegativePostSensorsReadingsMissingDeviceId"/>
-    <testcase name="Error response has Problem shape" time="0.013" classname="03NegativePostSensorsReadingsMissingDeviceId"/>
+  <testsuite name="03_Negative / POST /sensors/readings - missing deviceId" id="4c6d7622-c706-4daf-894b-5bab7a87a7bb" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.010">
+    <testcase name="Invalid payload returns client error" time="0.010" classname="03NegativePostSensorsReadingsMissingDeviceId"/>
+    <testcase name="Error response has Problem shape" time="0.010" classname="03NegativePostSensorsReadingsMissingDeviceId"/>
   </testsuite>
-  <testsuite name="03_Negative / GET /sensors/readings - invalid limit" id="6bef2451-33d9-440c-9538-fee4db6d3c78" timestamp="2026-05-19T09:18:51.323Z" tests="1" failures="0" errors="0" time="0.011">
-    <testcase name="Invalid limit returns client error" time="0.011" classname="03NegativeGetSensorsReadingsInvalidLimit"/>
+  <testsuite name="03_Negative / GET /sensors/readings - invalid limit" id="67011d62-30a7-4be5-bc9b-a08ba9f5d106" timestamp="2026-05-26T07:56:28.257Z" tests="1" failures="0" errors="0" time="0.009">
+    <testcase name="Invalid limit returns client error" time="0.009" classname="03NegativeGetSensorsReadingsInvalidLimit"/>
   </testsuite>
-  <testsuite name="04_Boundary_Reliability / POST /sensors/readings - high temperature boundary" id="91fa3fef-1eeb-48bb-863b-264cdc9e8154" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.009">
-    <testcase name="Boundary request has intentional server behavior" time="0.009" classname="04BoundaryReliabilityPostSensorsReadingsHighTemperatureBoundary"/>
-    <testcase name="Boundary response is inspectable" time="0.009" classname="04BoundaryReliabilityPostSensorsReadingsHighTemperatureBoundary"/>
+  <testsuite name="04_Boundary_Reliability / POST /sensors/readings - high temperature boundary" id="1f900d7d-20cd-4064-a0c3-e80bb44ffb54" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.011">
+    <testcase name="Boundary request has intentional server behavior" time="0.011" classname="04BoundaryReliabilityPostSensorsReadingsHighTemperatureBoundary"/>
+    <testcase name="Boundary response is inspectable" time="0.011" classname="04BoundaryReliabilityPostSensorsReadingsHighTemperatureBoundary"/>
   </testsuite>
-  <testsuite name="04_Boundary_Reliability / GET /sensors/threshold-exceeded - severity filter" id="3166a682-c095-47d5-95c0-119eb703f9d7" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.007">
-    <testcase name="Status code is 200" time="0.007" classname="04BoundaryReliabilityGetSensorsThresholdExceededSeverityFilter"/>
-    <testcase name="Response contains threshold event list" time="0.007" classname="04BoundaryReliabilityGetSensorsThresholdExceededSeverityFilter"/>
+  <testsuite name="04_Boundary_Reliability / GET /sensors/threshold-exceeded - severity filter" id="9ee94a44-5e8f-410d-a40e-7f5eb9cc7dd8" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.016">
+    <testcase name="Status code is 200" time="0.016" classname="04BoundaryReliabilityGetSensorsThresholdExceededSeverityFilter"/>
+    <testcase name="Response contains threshold event list" time="0.016" classname="04BoundaryReliabilityGetSensorsThresholdExceededSeverityFilter"/>
   </testsuite>
-  <testsuite name="05_Consumer_side_Smoke / Consumer smoke - Analytics can query telemetry" id="71a51649-3825-44d9-a37f-90a05bf6b36f" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.009">
-    <testcase name="Consumer receives telemetry contract response" time="0.009" classname="05ConsumerSideSmokeConsumerSmokeAnalyticsCanQueryTelemetry"/>
-    <testcase name="Consumer can parse telemetry items" time="0.009" classname="05ConsumerSideSmokeConsumerSmokeAnalyticsCanQueryTelemetry"/>
+  <testsuite name="05_Consumer_side_Smoke / Consumer smoke - Analytics can query telemetry" id="4967e1dd-4a1b-4e52-b1be-e202857264c2" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.013">
+    <testcase name="Consumer receives telemetry contract response" time="0.013" classname="05ConsumerSideSmokeConsumerSmokeAnalyticsCanQueryTelemetry"/>
+    <testcase name="Consumer can parse telemetry items" time="0.013" classname="05ConsumerSideSmokeConsumerSmokeAnalyticsCanQueryTelemetry"/>
   </testsuite>
-  <testsuite name="05_Consumer_side_Smoke / Consumer smoke - Core can query IoT events" id="4a9b9c00-1e12-433d-a501-44d4e4fa35ca" timestamp="2026-05-19T09:18:51.323Z" tests="2" failures="0" errors="0" time="0.009">
-    <testcase name="Consumer receives event contract response" time="0.009" classname="05ConsumerSideSmokeConsumerSmokeCoreCanQueryIoTEvents"/>
-    <testcase name="Consumer can parse event items" time="0.009" classname="05ConsumerSideSmokeConsumerSmokeCoreCanQueryIoTEvents"/>
+  <testsuite name="05_Consumer_side_Smoke / Consumer smoke - Core can query IoT events" id="55607495-c53d-4e39-838a-f0afecd695b1" timestamp="2026-05-26T07:56:28.257Z" tests="2" failures="0" errors="0" time="0.024">
+    <testcase name="Consumer receives event contract response" time="0.024" classname="05ConsumerSideSmokeConsumerSmokeCoreCanQueryIoTEvents"/>
+    <testcase name="Consumer can parse event items" time="0.024" classname="05ConsumerSideSmokeConsumerSmokeCoreCanQueryIoTEvents"/>
   </testsuite>
-  <testsuite name="06_Local_only_NonFunctional / GET /health - local response time" id="105bfebc-052e-4799-950e-c669db7b7478" timestamp="2026-05-19T09:18:51.323Z" tests="1" failures="0" errors="0" time="0.009">
-    <testcase name="Latency assertion skipped for mock environment" time="0.009" classname="06LocalOnlyNonFunctionalGetHealthLocalResponseTime"/>
+  <testsuite name="06_Local_only_NonFunctional / GET /health - local response time" id="45b84588-b69f-467b-b7cb-87473f744fc1" timestamp="2026-05-26T07:56:28.257Z" tests="1" failures="0" errors="0" time="0.007">
+    <testcase name="Latency assertion skipped for mock environment" time="0.007" classname="06LocalOnlyNonFunctionalGetHealthLocalResponseTime"/>
   </testsuite>
 </testsuites>
